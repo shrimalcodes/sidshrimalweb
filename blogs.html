@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .blog {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .blog h2 {
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .blog p {
+            margin: 0 0 10px;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blogs</h1>
+    <p><a href="index.html">&larr; Back to Home</a></p>
+
+    <div id="blogs-container">
+        <!-- Blogs will be dynamically loaded here -->
+    </div>
+
+    <footer>
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
+
+    <script>
+        // Blog metadata: manually set title, publication date, and associated text file
+        const blogs = [
+            { title: "Why I Hate LinkedIn", file: "blogs/blog1.txt", page: "blog_subpages/blog1.html", date: "January 11, 2025" },
+            { title: "Understanding Behavioral Economics", file: "blogs/blog2.txt", page: "blog_subpages/blog2.html", date: "December 15, 2024" },
+        ];
+
+        // Function to truncate content to 75 words
+        function truncateToWords(content, wordLimit = 75) {
+            const words = content.split(/\s+/);
+            return words.length > wordLimit
+                ? words.slice(0, wordLimit).join(" ") + "..."
+                : content;
+        }
+
+        async function loadBlogs() {
+            const blogsContainer = document.getElementById("blogs-container");
+
+            for (let i = 0; i < blogs.length; i++) {
+                const blog = blogs[i];
+                try {
+                    const response = await fetch(blog.file);
+                    if (!response.ok) throw new Error(`Failed to load ${blog.file}`);
+                    const content = await response.text();
+
+                    // Extract preview (first 75 words) from the text file
+                    const preview = truncateToWords(content);
+
+                    // Create a new blog entry in the list
+                    const blogDiv = document.createElement("div");
+                    blogDiv.classList.add("blog");
+                    blogDiv.innerHTML = `
+                        <h2>${blog.title}</h2>
+                        <p><i>Published on: ${blog.date}</i></p>
+                        <p>${preview}</p>
+                        <a href="${blog.page}" class="read-more">Read More</a>
+                    `;
+                    blogsContainer.appendChild(blogDiv);
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+        }
+
+        // Load blogs on page load
+        loadBlogs();
+    </script>
+</body>
+</html>
