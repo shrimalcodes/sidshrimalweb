@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +34,12 @@
             font-size: 0.9em;
             color: #555;
         }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -52,16 +57,26 @@
     
     <h2 id="projects">Projects</h2>
     <ul>
-        <li>Project 1: Description of your project.</li>
-        <li>Project 2: Description of another project.</li>
-        <li>Project 3: Description of a third project.</li>
+        <li><a href="#" onclick="showPDF('Evaluating_and_Improving_Proxy_Selection_Frameworks_for_Welfare_Schemes.pdf
+/.pdf')">Project 1: Evaluating and Improving Proxy Selection Frameworks</a></li>
+      
     </ul>
     
+    <iframe id="pdfViewer" src="" hidden></iframe>
+
     <h2 id="contact">Contact</h2>
     <p>You can reach me at <a href="mailto:yourname@example.com">yourname@example.com</a> or connect with me on <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>.</p>
     
     <footer>
         &copy; 2025 Your Name. All rights reserved.
     </footer>
+
+    <script>
+        function showPDF(pdfURL) {
+            const viewer = document.getElementById('pdfViewer');
+            viewer.src = pdfURL;
+            viewer.hidden = false;
+        }
+    </script>
 </body>
 </html>
