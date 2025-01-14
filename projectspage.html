@@ -9,13 +9,16 @@
             font-family: "Georgia", serif;
             margin: 20px;
             line-height: 1.6;
-            max-width: 700px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            background-color: #f8f9fa;
+            color: #333;
         }
 
         h1, h2 {
             color: #333;
+            text-align: center;
         }
 
         a {
@@ -29,6 +32,10 @@
 
         .project {
             margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         iframe {
@@ -37,10 +44,12 @@
             height: 600px;
             border: 1px solid #ccc;
             margin-top: 10px;
+            border-radius: 5px;
         }
 
         .toolbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             background-color: #d3d3d3;
@@ -52,11 +61,90 @@
         .toolbar a {
             color: black;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
         }
 
         .toolbar a:hover {
-            text-decoration: underline;
+            background-color: #ced4da;
+        }
+
+        .github-card {
+            display: flex;
+            align-items: center;
+            background-color: #dbd6d6;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .github-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .github-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .github-info {
+            flex-grow: 1;
+        }
+
+        .github-info h2 {
+            font-size: 18px;
+            margin: 0 0 5px;
+            color: #000000;
+        }
+
+        .github-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .github-button {
+            text-decoration: none;
+            font-size: 14px;
+            color: white;
+            background-color: #21262d;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .github-button:hover {
+            background-color: #161b22;
+        }
+
+        @media (max-width: 480px) {
+            .github-card {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .github-icon {
+                margin-bottom: 10px;
+            }
+
+            .github-info h2 {
+                font-size: 16px;
+            }
+
+            .github-button {
+                margin-top: 10px;
+            }
         }
 
         footer {
@@ -70,34 +158,25 @@
 <body>
     <h1>Projects</h1>
     <p><a href="index.html">&larr; Back to Home</a></p>
+
     <!-- Project 1 -->
     <div class="project">
         <h2>Evaluating and Improving Proxy Selection Frameworks</h2>
-        <p>The assignment was for a development economics course, and I thoroughly enjoyed the process. It covers social program targeting and how we can make that more accurate. </p>
+        <p>The assignment was for a development economics course, and I thoroughly enjoyed the process. It covers social program targeting and how we can make that more accurate.</p>
         <iframe src="pdfs/Evaluating_and_Improving_Proxy_Selection_Frameworks_for_Welfare_Schemes.pdf"></iframe>
-        <p> A condensed version covering the broad topics in this PPT:</p>
+        <p>A condensed version covering the broad topics in this PPT:</p>
         <iframe src="pdfs/Evaluating and Improving Proxy Selection Frameworks for Social Welfar Programs- PPT.pdf"></iframe>
-        <p>Econometric analysis done via Python and Stata.<p></p> <a href="https://github.com/shrimalcodes/Evaluating-and-Improving-Proxy-Selection-Frameworks-for-Welfare-Schemes" target=_blank title="This takes you to a Git repository">
-            Find the code here
-        </a>
-        <div class="toolbar">
-            <a href="index.html">&larr; Back to Home</a>
-            <a href="pdfs/Evaluating_and_Improving_Proxy_Selection_Frameworks_for_Welfare_Schemes.pdf" target="_blank">Download PDF</a>
-        </div>
-    </div>
+        <p>Econometric analysis done via Python and Stata.</p>
 
-    <!-- Project 2 -->
-    <div class="project">
-        <h2>Evolution of India’s Credit Post IBC: <i>Consumerization</i> and why we should bring securitised loans to India</h2>
-        <p>The paper talks about a fundamental shift in India’s credit landscape- credit flows moving away from industries and towards consumers. It also highlights the risk such a change poses, and suggests some policies that could reverse the trend. 
-           <br>
-           <br>
-            Following this, we tried to model the said risk-aversion amongst banks using private bank level data, and analysed the impact on productivity. 
-        </p>
-        <iframe src="pdfs/Evolution of India's Credit Post IBC.pdf"></iframe>
-        <div class="toolbar">
-            <a href="index.html">&larr; Back to Home</a>
-            <a href="pdfs/Evolution of India's Credit Post IBC.pdf" target="_blank">Download PDF</a>
+        <!-- GitHub Card -->
+        <div class="github-card">
+            <img class="github-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Icon">
+            <div class="github-info">
+                <h2>Evaluating-and-Improving-Proxy-Selection-Frameworks</h2>
+                <p>Repository by <strong>shrimalcodes</strong></p>
+            </div>
+            <a href="https://github.com/shrimalcodes/Evaluating-and-Improving-Proxy-Selection-Frameworks-for-Welfare-Schemes" 
+               target="_blank" class="github-button">View on GitHub</a>
         </div>
     </div>
 
