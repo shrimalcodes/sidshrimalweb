@@ -9,32 +9,62 @@
             font-family: "Georgia", serif;
             margin: 20px;
             line-height: 1.6;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            display: flex;
+            align-items: flex-start;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .content {
+            flex: 2;
+            margin-right: 20px;
+        }
+        
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin-top: 110px; /* Adjust this value to bring the image further down */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0; /* Removes rounded corners */
         }
 
         h1, h2 {
             color: #333;
+            text-align: center;
         }
-
+        
         a {
             color: blue;
             text-decoration: none;
         }
-
+        
         a:hover {
             text-decoration: underline;
         }
-
+        
         .nav {
             margin-bottom: 20px;
+            text-align: center;
         }
-
+        
         .nav a {
             margin-right: 15px;
         }
-
+        
         footer {
             margin-top: 50px;
             font-size: 0.9em;
@@ -44,33 +74,37 @@
     </style>
 </head>
 <body>
-    <h1>Siddharth Shrimal</h1>
-    <p>
-        I'm currently an undergraduate studying Economics and Finance at Ashoka University. 
-        I grew up in Bangalore and study in Delhi. Some things I’m interested in:
-    </p>
-    <ul>
-        <li>
-            <strong>Economics:</strong> I took up econ at university because I wasn’t too sure of what I wanted to pursue. Over time, I’ve really come to revel in its study. Apart from the sciences, I believe it’s the most important discipline for growth and progress.
-        </li>
-        <li>
-            <strong>Investing:</strong> Both my parents (and my granddad) have careers around investing and finance. I’ve picked up from it—and enjoy understanding markets from an investing lens.
-        </li>
-        <li>
-            <strong>Health/Training/Fitness:</strong> Played basketball as a kid, and now I’m interested in strength training and exploring different ways to stay active.
-        </li>
-    </ul>
+    <div class="container">
+        <div class="content">
+            <h1>Siddharth Shrimal</h1>
+            <p>
+                I'm currently an undergraduate studying Economics and Finance at Ashoka University. 
+                I grew up in Bangalore and study in Delhi. Some things I’m interested in:
+            </p>
+            <p>
+                <strong>Economics:</strong> I took up econ at university because I wasn’t too sure of what I wanted to pursue. Over time, I’ve really come to revel in its study. I'm particularly drawn in macroeconomics, focusing on growth and structural transformation, and how data-driven analysis informs economic policy and development.
+            </p>
+            <p>
+                <strong>Investing:</strong> Both my parents (and my granddad) have careers around investing and finance. I’ve picked up from it—and enjoy understanding markets from an investing lens.
+            </p>
+            <p>
+                <strong>Health/Training/Fitness:</strong> Played basketball as a kid, and now I’m interested in strength training and exploring different ways to stay active.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="profilephoto.jpeg" alt="Siddharth Shrimal">
+        </div>
+    </div>
     
     <div class="nav">
         <a href="projectspage.html">Projects</a>
         <a href="blogs.html">Blog</a>
         <a href="cv.html">CV</a>
     </div>
-
+    
     <h2 id="contact">Contact</h2>
     <p>
         You can reach me at <a href="mailto:siddharth.shrimal_ug25@ashoka.edu.in">siddharth.shrimal_ug25@ashoka.edu.in</a> 
-        or connect with me on <a href="https://www.linkedin.com/in/shrimal/" target="_blank">LinkedIn</a>.
     </p>
     
     <footer>
