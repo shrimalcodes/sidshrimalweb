@@ -1,140 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Ensures the site scales properly on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Include Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <title>Siddharth Shrimal</title>
+
+    <!-- Optional: Your custom stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
     <style>
-        body {
-            font-family: "Georgia", serif;
-            margin: 20px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+      /* Offset the fixed navbar */
+      body {
+        padding-top: 70px; /* Adjust if navbar is taller/shorter */
+        font-family: "Georgia", serif;
+        margin: 20px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container-custom {
+        display: flex;
+        align-items: flex-start;
+        max-width: 800px;
+        width: 100%;
+      }
+
+      .content {
+        flex: 2;
+        margin-right: 20px;
+      }
+
+      .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        margin-top: 110px; /* Adjust if you want the image higher/lower */
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0; /* Removes rounded corners */
+      }
+
+      h1,
+      h2 {
+        color: #333;
+        text-align: center;
+      }
+
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 50px;
+        font-size: 0.9em;
+        color: #555;
+        text-align: center;
+      }
+
+      /* Responsive styling for narrower screens */
+      @media (max-width: 600px) {
+        .container-custom {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
         }
-        
-        .container {
-            display: flex;
-            align-items: flex-start;
-            max-width: 800px;
-            width: 100%;
-        }
-        
+
         .content {
-            flex: 2;
-            margin-right: 20px;
+          margin-right: 0;
         }
-        
+
         .image-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            margin-top: 110px; /* Adjust this value to bring the image further down */
+          order: -1;
+          margin-top: 10px;
+          width: 50%;
         }
 
         .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0; /* Removes rounded corners */
+          width: 100%;
+          height: auto;
         }
-
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-        
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .nav {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .nav a {
-            margin-right: 15px;
-        }
-        
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #555;
-            text-align: center;
-        }
-
-        /* Responsive styling for narrower screens */
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .content {
-                margin-right: 0;
-            }
-
-            /* Bring the image closer and center on mobile */
-            .image-container {
-                order: -1;
-                margin-top: 10px;
-                width: 50%;
-            }
-
-            .image-container img{
-                width: 100%;
-                height: auto;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <h1>Siddharth Shrimal</h1>
-            <p>
-                I'm currently an undergraduate studying Economics and Finance at Ashoka University. 
-                I grew up in Bangalore and study in Delhi. Some things I’m interested in:
-            </p>
-            <p>
-                <strong>Economics:</strong> I took up econ at university because I wasn’t too sure of what I wanted to pursue. Over time, I’ve really come to revel in its study. I'm particularly drawn in macroeconomics, focusing on growth and structural transformation, and how data-driven analysis informs economic policy and development.
-            </p>
-            <p>
-                <strong>Investing:</strong> Both my parents (and my granddad) have careers around investing and finance. I’ve picked up from it—and enjoy understanding markets from an investing lens.
-            </p>
-            <p>
-                <strong>Health/Training/Fitness:</strong> Played basketball as a kid, and now I’m interested in strength training and exploring different ways to stay active.
-            </p>
-        </div>
-        <div class="image-container">
-            <img src="profilephoto.jpeg" alt="Siddharth Shrimal">
-        </div>
+  </head>
+  <body>
+    <!-- Centered Fixed-Top Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <div class="container-fluid">
+        <!-- Use mx-auto on the UL to center items horizontally -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blogs.html">Blog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Projects
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="projectspage.html">Research Projects</a></li>
+              <li><a class="dropdown-item" href="nonprojectspage.html">Non-Research Projects</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-custom">
+      <div class="content">
+        <h1>Siddharth Shrimal</h1>
+        <p>
+          I'm currently an undergraduate studying Economics and Finance at
+          Ashoka University. I grew up in Bangalore and study in Delhi. Some
+          things I’m interested in:
+        </p>
+        <p>
+          <strong>Economics:</strong> I took up econ at university because I
+          wasn’t too sure of what I wanted to pursue. Over time, I’ve really
+          come to revel in its study. I'm particularly drawn in macroeconomics,
+          focusing on growth and structural transformation, and how data-driven
+          analysis informs economic policy and development.
+        </p>
+        <p>
+          <strong>Investing:</strong> Both my parents (and my granddad) have
+          careers around investing and finance. I’ve picked up from it—and enjoy
+          understanding markets from an investing lens.
+        </p>
+        <p>
+          <strong>Health/Training/Fitness:</strong> Played basketball as a kid,
+          and now I’m interested in strength training and exploring different
+          ways to stay active.
+        </p>
+      </div>
+      <div class="image-container">
+        <img src="profilephoto.jpeg" alt="Siddharth Shrimal" />
+      </div>
     </div>
-    
-    <div class="nav">
-        <a href="projectspage.html">Projects</a>
-        <a href="blogs.html">Blog</a>
-        <a href="cv.html">CV</a>
-    </div>
-    
+
     <h2 id="contact">Contact</h2>
     <p>
-        You can reach me at <a href="mailto:siddharth.shrimal_ug25@ashoka.edu.in">siddharth.shrimal_ug25@ashoka.edu.in</a> 
+      You can reach me at
+      <a href="mailto:siddharth.shrimal_ug25@ashoka.edu.in"
+        >siddharth.shrimal_ug25@ashoka.edu.in</a
+      >
     </p>
-    
-    <footer>
-        &copy; 2025 Siddharth Shrimal. All rights reserved.
-    </footer>
-</body>
+
+    <footer>&copy; 2025 Siddharth Shrimal. All rights reserved.</footer>
+
+    <!-- Bootstrap JS (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
 </html>
