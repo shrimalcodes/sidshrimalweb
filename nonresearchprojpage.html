@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Non-Research Projects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Non Research Projects</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your custom stylesheet (if any) -->
+  <link rel="stylesheet" href="style.css">
     <style>
         body {
-            font-family: "Georgia", serif;
-            margin: 20px;
-            line-height: 1.6;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #f8f9fa;
-            color: #333;
-        }
+        font-family: "Georgia", serif;
+        margin: 20px;
+        line-height: 1.6;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #f8f9fa;
+        color: #333;
+        padding-top: 80px; /* Added padding to push content below the fixed navbar */
+    }
 
         h1, h2 {
             color: #333;
@@ -73,28 +78,60 @@
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: 80px;
             font-size: 0.9em;
             color: #555;
             text-align: center;
         }
     </style>
 </head>
-<body>
-    <h1>Non-Research Projects</h1>
-    <p><a href="projectspage.html">&larr; Back to Research Projects</a></p>
+    <!-- Centered Fixed-Top Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+          <!-- Use mx-auto on the UL to center items horizontally -->
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
 
-    <div class="project">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                List of Projects
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#project1">Climate Tech Sector Analysis</a></li>
+                <li><a class="dropdown-item" href="#project2">Regeneron Pharma Valuation</a></li>
+                <li><a class="dropdown-item" href="#project3">Asian Paints Valuation</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+    <div class="project" id="project1">
         <h2>An Analysis of opportunities in the Climate Tech sector</h2>
         <p>In depth sector analysis across energy, sustainable material, energy as a service and more. Looks at mid-markets opportunities in India</p>
-        <iframe src="pdfs/PE Opportunities in Climate Tech- An Analysis (India).pdf"></iframe>
+        <iframe src="pdfs/PE Opportunities in Climate Tech- An Analysis (India).pdf">
+            <p>
+                Your browser does not support PDFs.
+                <a href="pdfs/PE Opportunities in Climate Tech- An Analysis (India).pdf">Download the PDF</a>
+            </p>
+        </iframe>
         <div class="toolbar">
             <a href="pdfs/PE Opportunities in Climate Tech- An Analysis (India).pdf" target="_blank">Download PDF</a>
         </div>
     </div>
 
+<body>
+
     <!-- Non-Research Project -->
-    <div class="project">
+    <div class="project" id="project2">
         <h2>Company Analysis- Regeneron Pharma</h2>
         <p>A complete analysis of the pharma sector, specifically Regeneron Pharma, along with valuation and key financial metric</p>
         <iframe src="pdfs/Regeneron_Company Analysis.pdf"></iframe>
@@ -112,7 +149,7 @@
         </div>
     </div>
 
-    <div class="project">
+    <div class="project" id="project3">
         <h2>Asian Paints</h2>
         <p>Carried out a comprehensive three statement DCF for Asian Paints</p>
         <div class="toolbar">
@@ -123,5 +160,7 @@
     <footer>
         &copy; 2025 Your Name. All rights reserved.
     </footer>
+  <!-- Bootstrap JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
