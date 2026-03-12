@@ -1,75 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why I Hate LinkedIn</title>
-    <style>
-        body {
-            font-family: "Georgia", serif;
-            margin: 20px;
-            line-height: 1.6;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #555;
-            text-align: center;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why I Hate LinkedIn — Siddharth Shrimal</title>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-    <h1>Why I Hate LinkedIn</h1>
-    <div id="blog-content">
-        <!-- Blog content will be dynamically loaded here -->
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="../index.html" class="site-logo">Siddharth Shrimal</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../cv.html">CV</a></li>
+        <li><a href="../blogs.html">Blog</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-dropdown-toggle">Projects</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="../projectspage.html">Research Projects</a></li>
+            <li><a href="../nonresearchprojpage.html">Non-Research Projects</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <a class="back-link" href="../blogs.html">&larr; All posts</a>
+
+    <div class="blog-post-header">
+      <h1>Why I Hate LinkedIn</h1>
+      <p class="blog-meta">January 11, 2025</p>
     </div>
-    <p><a href="../blogs.html">&larr; Back to Blogs</a></p>
 
-    <footer>
-        &copy; 2025 Your Name. All rights reserved.
-    </footer>
+    <div class="blog-content" id="blog-content">
+      <p>Loading…</p>
+    </div>
+  </main>
 
-    <script>
-        async function loadBlog() {
-            try {
-                const response = await fetch("../blogs/blog1.txt");
-                if (!response.ok) throw new Error("Failed to load blog content");
-                const content = await response.text();
+  <footer>&copy; 2025 Siddharth Shrimal</footer>
 
-                const body = content.split("\n").slice(1).join("\n").replace(/\n/g, "<p>");
-
-                document.getElementById("blog-content").innerHTML = `${body}`;
-            } catch (error) {
-                document.getElementById("blog-content").innerHTML = `
-                    <p>Error loading blog content. Please try again later.</p>
-                `;
-                console.error(error.message);
-            }
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var links  = document.getElementById('nav-links');
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+      document.querySelectorAll('.nav-dropdown-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          if (window.innerWidth <= 640) {
+            e.preventDefault();
+            btn.closest('.nav-dropdown').classList.toggle('open');
+          }
+        });
+      });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.site-nav')) {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
         }
+      });
+    })();
 
-        // Load the blog content on page load
-        loadBlog();
-    </script>
+    async function loadBlog() {
+      var el = document.getElementById('blog-content');
+      try {
+        var res = await fetch('../blogs/blog1.txt');
+        if (!res.ok) throw new Error('Could not load blog content');
+        var text = await res.text();
+        // Skip the first line (title), split on double newlines for paragraphs
+        var lines = text.split('\n').slice(1).join('\n');
+        var paragraphs = lines
+          .split(/\n{2,}/)
+          .map(function (p) { return p.trim(); })
+          .filter(Boolean)
+          .map(function (p) { return '<p>' + p.replace(/\n/g, ' ') + '</p>'; });
+        el.innerHTML = paragraphs.join('\n');
+      } catch (err) {
+        el.innerHTML = '<p>Error loading content. Please try again later.</p>';
+        console.error(err);
+      }
+    }
+
+    loadBlog();
+  </script>
+
 </body>
 </html>
